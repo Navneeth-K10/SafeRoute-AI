@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeRoute | Choose Account Type</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/account-type.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              dark: '#0b0f19',
+              card: 'rgba(15, 23, 42, 0.7)',
+              cyan: '#00f0ff',
+              red: '#ef4444',
+              blue: '#3b82f6'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-300 antialiased bg-grid font-sans overflow-x-hidden min-h-screen flex flex-col items-center justify-center py-12 selection:bg-brand-cyan selection:text-brand-dark">
+
+  <!-- Logo/Home Link -->
+  <a href="/index.html" class="absolute top-8 left-8 flex items-center gap-3 group">
+    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-cyan to-blue-600 flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform">
+      <i class="ph-bold ph-shield-check text-brand-dark text-xl"></i>
+    </div>
+    <span class="text-xl font-black text-white tracking-tight group-hover:text-brand-cyan transition-colors">SafeRoute</span>
+  </a>
+
+  <main class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-0 relative z-10">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">CREATE YOUR SAFE ROUTE ACCOUNT</h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">Choose how you will use the SafeRoute platform.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      
+      <!-- CITIZEN CARD -->
+      <div class="glass-panel p-8 flex flex-col justify-between h-full border-t-4 border-t-brand-cyan glass-panel-hover">
+        <div>
+          <div class="w-14 h-14 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-6">
+            <i class="ph-fill ph-user text-3xl"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3">CITIZEN</h2>
+          <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+            Report accidents, receive road-safety alerts, view accident hotspots and use SafeRoute navigation.
+          </p>
+        </div>
+        <a href="/register.html" class="btn-cyber-primary text-center block w-full py-3 text-sm tracking-wider uppercase">
+          REGISTER AS CITIZEN
+        </a>
+      </div>
+
+      <!-- POLICE STATION CARD -->
+      <div class="glass-panel p-8 flex flex-col justify-between h-full border-t-4 border-t-brand-blue glass-panel-hover">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="w-14 h-14 rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-blue">
+              <i class="ph-fill ph-shield-star text-3xl"></i>
+            </div>
+            <span class="badge-pending text-[10px]">ADMIN APPROVAL REQUIRED</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3">POLICE STATION</h2>
+          <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+            Register your police station to receive and verify accident reports within your assigned area.
+          </p>
+        </div>
+        <a href="/police/register.html" class="w-full py-3 text-center bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all uppercase text-sm tracking-wider">
+          REGISTER POLICE STATION
+        </a>
+      </div>
+
+      <!-- AMBULANCE CARD -->
+      <div class="glass-panel p-8 flex flex-col justify-between h-full border-t-4 border-t-brand-red glass-panel-hover">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <div class="w-14 h-14 rounded-full bg-brand-red/10 border border-brand-red/30 flex items-center justify-center text-brand-red">
+              <i class="ph-fill ph-ambulance text-3xl"></i>
+            </div>
+            <span class="badge-pending text-[10px]">ADMIN APPROVAL REQUIRED</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3">AMBULANCE</h2>
+          <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+            Register an ambulance service to receive real-time emergency alerts and respond to verified incidents.
+          </p>
+        </div>
+        <a href="/ambulance/register.html" class="btn-cyber-danger text-center block w-full py-3 text-sm tracking-wider uppercase">
+          REGISTER AMBULANCE
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Login Link -->
+    <div class="text-center mt-12">
+      <p class="text-slate-400">
+        Already have an account? 
+        <a href="/login.html" class="text-white font-bold hover:text-brand-cyan ml-2 transition-colors border-b border-transparent hover:border-brand-cyan pb-0.5">
+          LOGIN
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/account-type.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* SafeRoute Homepage CSS */
+
+/* Smooth scrolling offset for fixed navbar */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Mock route line animation */
+.mock-route {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawRoute 3s ease-in-out infinite alternate;
+}
+
+@keyframes drawRoute {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Make sure mobile menu toggle button displays correctly */
+#mobileMenu {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Breathing Hotspot */
+@keyframes breatheHotspot {
+  0%, 100% {
+    r: 45;
+    fill-opacity: 0.05;
+  }
+  50% {
+    r: 48;
+    fill-opacity: 0.08;
+  }
+}
+.mock-hotspot-breathe {
+  animation: breatheHotspot 4s ease-in-out infinite;
+}
+
+/* Route dash moving */
+.mock-route-dash {
+  stroke-dasharray: 8 8;
+  animation: moveDash 1.5s linear infinite;
+}
+@keyframes moveDash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+

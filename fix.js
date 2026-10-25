@@ -1,0 +1,1 @@
+const fs = require('fs'); const file = 'c:/MP/SafeRoute/frontend/js/hotspotProximity.js'; let content = fs.readFileSync(file, 'utf8'); content = content.split('userLongitude: userLng,\\n      userAccuracy: userAccuracy,').join('userLongitude: userLng,\n      userAccuracy: userAccuracy,'); fs.writeFileSync(file, content);

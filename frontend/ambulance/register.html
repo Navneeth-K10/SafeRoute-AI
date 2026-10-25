@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeRoute - Ambulance Registration</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            cyber: {
+              dark: '#0a0e17',
+              card: 'rgba(15, 23, 42, 0.75)',
+              cyan: '#00f0ff',
+              blue: '#0284c7',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              rose: '#ef4444'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 650px;
+    }
+  </style>
+</head>
+<body class="bg-cyber-dark text-slate-100 bg-grid antialiased select-none">
+  
+  <div class="login-container">
+    <div class="glass-panel auth-card p-8 rounded-2xl relative overflow-hidden shadow-2xl border border-rose-500/30">
+      <!-- Glow effect -->
+      <div class="absolute -top-20 -left-20 w-40 h-40 bg-rose-500 rounded-full blur-[80px] opacity-20"></div>
+      
+      <div class="text-center mb-6">
+        <h1 class="font-black text-2xl tracking-wide bg-gradient-to-r from-white via-rose-200 to-rose-400 bg-clip-text text-transparent mb-1">
+          SafeRoute
+        </h1>
+        <p class="text-sm text-rose-400 font-mono">AMBULANCE REGISTRATION</p>
+      </div>
+
+      <div id="message-area" class="hidden mb-4 p-3 rounded-lg text-sm font-medium text-center">
+      </div>
+
+      <form id="register-form" class="space-y-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">AMBULANCE NAME</label>
+            <input type="text" id="ambulanceName" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="City Hospital Ambulance">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">VEHICLE NUMBER</label>
+            <input type="text" id="vehicleNumber" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="e.g. KL-01-AB-1234">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">DRIVER NAME</label>
+            <input type="text" id="driverName" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="Driver Name">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">PHONE NUMBER</label>
+            <input type="text" id="phone" required
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="Emergency Contact">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">OFFICIAL EMAIL</label>
+            <input type="email" id="email" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="ambulance@hospital.org">
+          </div>
+        </div>
+        
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">ADDRESS</label>
+          <input type="text" id="address" required 
+            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+            placeholder="Base Hospital / Street Address">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">CITY</label>
+            <input type="text" id="city" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="City">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">DISTRICT</label>
+            <input type="text" id="district" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="District">
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">STATE</label>
+            <input type="text" id="state" required 
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="State">
+          </div>
+        </div>
+
+        <!-- Ambulance Location Section -->
+        <div class="mt-6 pt-4 border-t border-slate-800">
+          <label class="block text-sm font-bold text-rose-400 mb-2">Ambulance Location</label>
+          <p class="text-xs text-slate-400 mb-3">Click on the map or use your current location to set the ambulance's operating location.</p>
+          
+          <button type="button" id="useLocationBtn" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-lg font-bold text-xs tracking-wide transition-colors border border-slate-700 mb-4 flex items-center justify-center gap-2">
+            Use My Location
+          </button>
+          
+          <div id="map" class="w-full h-64 rounded-lg overflow-hidden border border-slate-700 shadow-inner bg-slate-900 mb-3"></div>
+          
+          <div class="grid grid-cols-2 gap-4 text-xs font-mono bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+            <div>Latitude: <span id="latDisplay" class="text-rose-400">--</span></div>
+            <div>Longitude: <span id="lngDisplay" class="text-rose-400">--</span></div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-4 border-t border-slate-800">
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">PASSWORD</label>
+            <input type="password" id="password" required minlength="6"
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="••••••••">
+          </div>
+          
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5 ml-1">CONFIRM PASSWORD</label>
+            <input type="password" id="confirm-password" required minlength="6"
+              class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-colors text-white placeholder-slate-500" 
+              placeholder="••••••••">
+          </div>
+        </div>
+
+        <button type="submit" id="register-btn" class="w-full btn-cyber-danger !bg-rose-600 hover:!bg-rose-500 !border-rose-400 shadow-rose-900/50 py-3 rounded-lg font-bold tracking-wide mt-4 relative overflow-hidden group">
+          <span class="relative z-10 flex items-center justify-center gap-2">
+            REGISTER AMBULANCE
+          </span>
+        </button>
+      </form>
+
+      <div class="mt-6 text-center text-sm text-slate-400">
+        Already registered? 
+        <a href="login.html" class="text-rose-400 hover:text-rose-300 font-medium transition-colors">LOGIN</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/map.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    let selectedLat = null;
+    let selectedLng = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Initialize Map
+      await MapService.initMap('map');
+      
+      // Setup Map Click to select location
+      MapService.setMapClickListener((lat, lng) => {
+        selectedLat = lat;
+        selectedLng = lng;
+        document.getElementById('latDisplay').textContent = lat.toFixed(6);
+        document.getElementById('lngDisplay').textContent = lng.toFixed(6);
+        
+        MapService.updateSelectedStationLocation(lat, lng);
+        MapService.centerMap(lat, lng, 16);
+      });
+
+      // Setup "Use My Location"
+      document.getElementById('useLocationBtn').addEventListener('click', () => {
+        const btn = document.getElementById('useLocationBtn');
+        const originalText = btn.innerHTML;
+        
+        if (!navigator.geolocation) {
+          alert('Geolocation is not supported by your browser');
+          return;
+        }
+
+        btn.innerHTML = 'Locating...';
+        btn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            selectedLat = latitude;
+            selectedLng = longitude;
+            
+            document.getElementById('latDisplay').textContent = latitude.toFixed(6);
+            document.getElementById('lngDisplay').textContent = longitude.toFixed(6);
+            
+            // Use existing updateUserLocation which creates a cyan GPS marker
+            MapService.updateUserLocation(latitude, longitude);
+            MapService.centerMap(latitude, longitude, 17);
+            MapService.hideSelectedStationLocation();
+            
+            btn.innerHTML = 'Location detected';
+            setTimeout(() => {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
+          },
+          (error) => {
+            console.error('Geolocation error:', error);
+            
+            let errorMsg = 'Failed to get location.';
+            if (error.code === error.PERMISSION_DENIED) errorMsg = 'Location permission denied.';
+            if (error.code === error.POSITION_UNAVAILABLE) errorMsg = 'Location information is unavailable.';
+            if (error.code === error.TIMEOUT) errorMsg = 'Location request timed out.';
+            
+            alert(`${errorMsg} Please click on the map to set location manually.`);
+            
+            btn.innerHTML = 'Unable to get current location';
+            setTimeout(() => {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 3000);
+          },
+          { enableHighAccuracy: true, timeout: 10000 }
+        );
+      });
+
+      // Registration form submission
+      document.getElementById('register-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const msgArea = document.getElementById('message-area');
+        
+        if (selectedLat === null || selectedLng === null) {
+          msgArea.textContent = 'Please select the ambulance location on the map.';
+          msgArea.className = 'mb-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium text-center';
+          msgArea.classList.remove('hidden');
+          return;
+        }
+
+        const payload = {
+          ambulanceName: document.getElementById('ambulanceName').value,
+          vehicleNumber: document.getElementById('vehicleNumber').value,
+          driverName: document.getElementById('driverName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          city: document.getElementById('city').value,
+          district: document.getElementById('district').value,
+          state: document.getElementById('state').value,
+          latitude: selectedLat,
+          longitude: selectedLng,
+          password: document.getElementById('password').value
+        };
+        const confirmPassword = document.getElementById('confirm-password').value;
+        const btn = document.getElementById('register-btn');
+        
+        if (payload.password !== confirmPassword) {
+          msgArea.textContent = 'Passwords do not match';
+          msgArea.className = 'mb-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium text-center';
+          msgArea.classList.remove('hidden');
+          return;
+        }
+        
+        btn.disabled = true;
+        btn.innerHTML = '<span class="relative z-10">REGISTERING...</span>';
+        msgArea.classList.add('hidden');
+        
+        try {
+          const res = await api.fetch('/auth/register-ambulance', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+          });
+          
+          if (!res.ok) {
+            msgArea.textContent = res.data.message || 'Registration failed';
+            msgArea.className = 'mb-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium text-center';
+            msgArea.classList.remove('hidden');
+            btn.disabled = false;
+            btn.innerHTML = '<span class="relative z-10">REGISTER AMBULANCE</span>';
+          } else {
+            msgArea.textContent = 'Registration successful! Redirecting to login...';
+            msgArea.className = 'mb-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium text-center';
+            msgArea.classList.remove('hidden');
+            
+            setTimeout(() => {
+              window.location.href = 'login.html';
+            }, 2000);
+          }
+        } catch (err) {
+          msgArea.textContent = 'Server connection error';
+          msgArea.className = 'mb-4 p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium text-center';
+          msgArea.classList.remove('hidden');
+          btn.disabled = false;
+          btn.innerHTML = '<span class="relative z-10">REGISTER AMBULANCE</span>';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

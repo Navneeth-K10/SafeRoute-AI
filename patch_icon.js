@@ -1,0 +1,1 @@
+const fs = require('fs'); const file = 'c:/MP/SafeRoute/frontend/account-type.html'; let content = fs.readFileSync(file, 'utf8'); content = content.replace('ph-first-aid', 'ph-ambulance'); fs.writeFileSync(file, content);
